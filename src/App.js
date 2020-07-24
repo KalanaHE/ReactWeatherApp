@@ -1,14 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-
-import WeatherCard from './WeatherCard';
+import WeatherCard from './components/WeatherCard/component.js';
+import 'bootstrap/dist/css/bootstrap.css';
+import { Container } from 'react-bootstrap';
 
 function App() {
   return (
     <div className="App">
-      <WeatherCard/>
+      <Container fluid>
+      <div class="row justify-content-center">
+        <WeatherCard/>
+        </div>
+      </Container>
     </div>
+    
   );
 }
 
