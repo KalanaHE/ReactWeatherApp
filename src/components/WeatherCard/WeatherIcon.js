@@ -13,6 +13,9 @@ const WeatherIcon = (props) => {
     case "tornado":
       icon = "Images/WeatherSVGs/wi-tornado.svg";
       break;
+    case "Clouds":
+      icon = "Images/WeatherSVGs/wi-cloud.svg";
+      break;
     default:
       break;
   }
