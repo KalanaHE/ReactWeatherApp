@@ -17,7 +17,7 @@ const WeatherIcon = (props) => {
       break;
   }
 
-  return <Card.Img src={icon} />;
+  return <Card.Img src={icon} style={{ padding: "10px" }} />;
 };
 
 export default WeatherIcon;
