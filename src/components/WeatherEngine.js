@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import WeatherCard from "./WeatherCard/component.js";
+import { Card } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.css";
 
 function WeatherEngine({ location }) {
@@ -56,23 +57,72 @@ function WeatherEngine({ location }) {
             />
           </div>
           <br />
-          <form className="row justify-content-center">
+          <form
+            className="row justify-content-center"
+            onSubmit={(e) => {
+              handleSearch(e);
+            }}
+          >
             <input
+              required
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
             />
-            <button onClick={(e) => handleSearch(e)}>search</button>
+            <button className="btn btn-success" type="submit">
+              search
+            </button>
           </form>
         </div>
       ) : loading ? (
-        <div style={{ color: "black" }}>Loading...</div>
+        <div>
+          <div className="spinner-grow text-primary" role="status">
+            <span className="sr-only">Loading...</span>
+          </div>
+          <div className="spinner-grow text-secondary" role="status">
+            <span className="sr-only">Loading...</span>
+          </div>
+          <div className="spinner-grow text-success" role="status">
+            <span className="sr-only">Loading...</span>
+          </div>
+          <div className="spinner-grow text-danger" role="status">
+            <span className="sr-only">Loading...</span>
+          </div>
+          <div className="spinner-grow text-warning" role="status">
+            <span className="sr-only">Loading...</span>
+          </div>
+          <div className="spinner-grow text-info" role="status">
+            <span className="sr-only">Loading...</span>
+          </div>
+          <div className="spinner-grow text-light" role="status">
+            <span className="sr-only">Loading...</span>
+          </div>
+          <div className="spinner-grow text-dark" role="status">
+            <span className="sr-only">Loading...</span>
+          </div>
+        </div>
       ) : !loading && error ? (
-        <div style={{ color: "black" }}>
-          There has been an error!&nbsp;&nbsp;
-          <button onClick={() => setError(false)} className="btn btn-danger">
-            Reset
-          </button>
+        <div>
+          <Card
+            className="bg-gradient"
+            style={{
+              width: "40%",
+              backgroundColor: "#FFFFFF",
+            }}
+          >
+            <Card.Body className="justify-content-center">
+              <center>There has been an error!</center>
+              <hr />
+              <center>
+                <button
+                  onClick={() => setError(false)}
+                  className="btn btn-danger"
+                >
+                  Reset
+                </button>
+              </center>
+            </Card.Body>
+          </Card>
         </div>
       ) : null}
     </div>
